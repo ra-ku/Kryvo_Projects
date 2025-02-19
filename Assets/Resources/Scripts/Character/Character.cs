@@ -15,6 +15,9 @@ namespace PunchPunchmaeum
 
         [Header("Character - Coroutine")]
         [HideInInspector] Coroutine C_LookAt;
+
+        [Header("Character-Data")]
+        [HideInInspector] LocomotionData locomotionData; 
         void Start()
         {
             Initialize();
