@@ -1,0 +1,239 @@
+fileFormatVersion: 2
+guid: c32c4c8040f6d144bab11a7d48e90809
+timeCreated: 1506702209
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Box041
+    100002: Box042
+    100004: //RootNode
+    100006: Grands1
+    100008: Grands2
+    100010: Grands3
+    100012: Grands4
+    100014: grandstand1
+    100016: grandstand2
+    100018: grandstand3
+    100020: grandstand4
+    100022: Object003
+    100024: Object004
+    100026: punchball 2
+    100028: punchball3
+    100030: punchball4
+    100032: punchball5
+    100034: punchball6
+    100036: rack weight
+    100038: rack weight 2
+    100040: Sphere012
+    100042: Sphere013
+    100044: Sphere014
+    100046: Sphere015
+    100048: stair rail
+    100050: stair rail 2
+    100052: stair rail 3
+    100054: Support
+    100056: support 2
+    100058: Support2
+    100060: support3
+    100062: support4
+    100064: Tables
+    100066: Tables001
+    100068: Tables002
+    100070: Tables003
+    100072: tire1
+    100074: tire2
+    100076: weight ball
+    400000: Box041
+    400002: Box042
+    400004: //RootNode
+    400006: Grands1
+    400008: Grands2
+    400010: Grands3
+    400012: Grands4
+    400014: grandstand1
+    400016: grandstand2
+    400018: grandstand3
+    400020: grandstand4
+    400022: Object003
+    400024: Object004
+    400026: punchball 2
+    400028: punchball3
+    400030: punchball4
+    400032: punchball5
+    400034: punchball6
+    400036: rack weight
+    400038: rack weight 2
+    400040: Sphere012
+    400042: Sphere013
+    400044: Sphere014
+    400046: Sphere015
+    400048: stair rail
+    400050: stair rail 2
+    400052: stair rail 3
+    400054: Support
+    400056: support 2
+    400058: Support2
+    400060: support3
+    400062: support4
+    400064: Tables
+    400066: Tables001
+    400068: Tables002
+    400070: Tables003
+    400072: tire1
+    400074: tire2
+    400076: weight ball
+    2300000: Box041
+    2300002: Box042
+    2300004: grandstand1
+    2300006: grandstand2
+    2300008: grandstand3
+    2300010: grandstand4
+    2300012: Object003
+    2300014: Object004
+    2300016: rack weight
+    2300018: rack weight 2
+    2300020: Sphere012
+    2300022: Sphere013
+    2300024: Sphere014
+    2300026: Sphere015
+    2300028: stair rail
+    2300030: stair rail 2
+    2300032: stair rail 3
+    2300034: Support
+    2300036: support 2
+    2300038: support3
+    2300040: support4
+    2300042: Tables
+    2300044: Tables001
+    2300046: Tables002
+    2300048: Tables003
+    2300050: tire1
+    2300052: tire2
+    2300054: weight ball
+    3300000: Box041
+    3300002: Box042
+    3300004: grandstand1
+    3300006: grandstand2
+    3300008: grandstand3
+    3300010: grandstand4
+    3300012: Object003
+    3300014: Object004
+    3300016: rack weight
+    3300018: rack weight 2
+    3300020: Sphere012
+    3300022: Sphere013
+    3300024: Sphere014
+    3300026: Sphere015
+    3300028: stair rail
+    3300030: stair rail 2
+    3300032: stair rail 3
+    3300034: Support
+    3300036: support 2
+    3300038: support3
+    3300040: support4
+    3300042: Tables
+    3300044: Tables001
+    3300046: Tables002
+    3300048: Tables003
+    3300050: tire1
+    3300052: tire2
+    3300054: weight ball
+    4300000: Sphere015
+    4300002: Sphere012
+    4300004: Object003
+    4300006: Sphere014
+    4300008: Sphere013
+    4300010: Box041
+    4300012: Box042
+    4300014: weight ball
+    4300016: Support
+    4300018: support3
+    4300020: tire1
+    4300022: tire2
+    4300024: support4
+    4300026: stair rail
+    4300028: stair rail 2
+    4300030: stair rail 3
+    4300032: rack weight
+    4300034: rack weight 2
+    4300036: Tables
+    4300038: grandstand3
+    4300040: grandstand2
+    4300042: Tables001
+    4300044: grandstand1
+    4300046: Tables002
+    4300048: grandstand4
+    4300050: Tables003
+    4300052: support 2
+    4300054: Object004
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 0
+    normalImportMode: 1
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
