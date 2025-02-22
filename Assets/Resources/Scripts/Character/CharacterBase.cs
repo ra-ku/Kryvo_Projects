@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,7 +23,17 @@ namespace PunchPunchmaeum
         Straight,
         Upper
     }
-    
+
+    [Serializable]
+    public struct CharacterOptional
+    {
+        [Header("[Character Optional]")]
+        public bool useRagdoll;
+
+        [Header("[Camera Settings]")]
+        public Transform cameraPivot;
+    }
+
     // 캐릭터 필수 요소 필드 선언
     public abstract class CharacterBase : MonoBehaviour
     {

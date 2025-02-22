@@ -10,10 +10,10 @@ namespace PunchPunchmaeum
         public float slopeLimit;
         public float stepOffset;
         public float skinWidth;
-        public float Min_Move_Distance;
+        public float min_Move_Distance;
         public Vector3 center;
         public float radius;
-        public float Height;
+        public float height;
     }
 
     [CreateAssetMenu(menuName ="PunchPunchmaeum/Locomotion/Locomotion Data" , fileName ="locomotionData")]

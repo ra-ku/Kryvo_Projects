@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8dbaa7d805023647bfd628b0d5a771f, type: 3}
-  m_Name: locomotionData
+  m_Name: CharacterData
   m_EditorClassIdentifier: 
   CharacterControllerSetting:
     slopeLimit: 0
     stepOffset: 0
-    skinWidth: 0
-    Min_Move_Distance: 0
+    skinWidth: 0.08
+    min_Move_Distance: 0
     center: {x: 0, y: 0, z: 0}
     radius: 0
-    Height: 0
+    height: 0
