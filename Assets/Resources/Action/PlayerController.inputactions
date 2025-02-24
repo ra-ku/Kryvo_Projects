@@ -26,6 +26,17 @@
                     "action": "Zap",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c26a957f-2092-42f8-99f1-a13eef3c60bb",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

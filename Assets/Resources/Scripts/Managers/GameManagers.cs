@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManagers : MonoBehaviour
+namespace PunchPunchmaeum
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GameManagers : MonoBehaviour
     {
-        //1.
-        Managers mg = Managers.Instance;       
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
+            //1.
+            Managers mg = Managers.Instance;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 }
+
