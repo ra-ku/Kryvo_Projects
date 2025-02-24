@@ -1,0 +1,79 @@
+{
+    "name": "PlayerController",
+    "maps": [
+        {
+            "name": "Attack",
+            "id": "981a2398-09a8-4bd1-b025-c6d4d72d17bf",
+            "actions": [
+                {
+                    "name": "Zap",
+                    "type": "Button",
+                    "id": "02f1647c-bf67-413e-b906-9b96eea2c245",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "70ec55fc-cd43-4b5d-b913-48280714551b",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mobile",
+                    "action": "Zap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Move",
+            "id": "9be3990e-567e-4d97-ae32-29070c38fd2e",
+            "actions": [
+                {
+                    "name": "weaving",
+                    "type": "Value",
+                    "id": "72d1edbf-47c3-428a-b7f2-fa7a154bb49f",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "053ad293-1de8-4bec-83b5-33dc75f82f49",
+                    "path": "<Accelerometer>/acceleration",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mobile",
+                    "action": "weaving",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Mobile",
+            "bindingGroup": "Mobile",
+            "devices": [
+                {
+                    "devicePath": "<Sensor>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Touchscreen>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

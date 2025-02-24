@@ -2,17 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCharacter : MonoBehaviour
+namespace PunchPunchmaeum
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerCharacter : Character
     {
-        
-    }
+        protected override void Start()
+        {
+            base.Start();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected override void Update()
+        {
+            base.Update();
+        }
+        protected override void Initialize()
+        {
+            base.Initialize();
+            SetCharacterTag("Player");
+        }
+
+        protected override void PostInitialize()
+        {
+            base.PostInitialize();
+            print("½ÇÇà");
+        }
+
+        protected override void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            base.OnControllerColliderHit(hit);
+        }
+
+
     }
 }
+

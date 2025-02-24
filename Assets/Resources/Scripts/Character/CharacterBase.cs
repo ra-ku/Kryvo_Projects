@@ -18,10 +18,8 @@ namespace PunchPunchmaeum
     {
         Default = 0,
 
-        Guard,
         Zap,
-        Straight,
-        Upper
+        weaving
     }
 
     [Serializable]

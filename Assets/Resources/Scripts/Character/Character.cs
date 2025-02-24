@@ -16,15 +16,27 @@ namespace PunchPunchmaeum
         [HideInInspector] AttributeManager attributeManager;
 
         [Header("Character-Data")]
-        [SerializeField]
-        LocomotionData locomotionData;
+        public LocomotionData locomotionData;
+        [SerializeField] private string characterTag;
 
         [Header("Character - Option")]
         public CharacterOptional characterOptional;
-        [SerializeField] private List<Rigidbody> ragdollRigs;
-        void Start()
+        [SerializeField] private List<Rigidbody> ragdollRigs = new List<Rigidbody>();
+
+
+        protected override void Awake()
         {
+            base.Awake();
             Initialize();
+        }
+        protected virtual void Start()
+        {
+            PostInitialize();           
+        }
+
+        protected virtual void Update()
+        {
+
         }
 
         protected override void Initialize()
@@ -34,9 +46,26 @@ namespace PunchPunchmaeum
             comboComponent = GetComponent<ComboComponent>();
             attributeManager = GetComponent<AttributeManager>();
             SetLocomotionData();
+            //SetRagdoll(true);
         }
 
-        private void  SetLocomotionData()
+        protected virtual  void PostInitialize()
+        {
+            InitRagdoll();
+        }
+
+        protected virtual void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            if (hit.rigidbody != null)
+            {
+                if (characterAnim.applyRootMotion)
+                {
+                    hit.rigidbody.AddForce(hit.moveDirection * characterAnim.velocity.magnitude, ForceMode.Impulse);
+                }
+            }
+        }
+
+        protected virtual void  SetLocomotionData()
         {
             //characterController
             characterController.skinWidth = locomotionData.CharacterControllerSetting.skinWidth;
@@ -92,10 +121,15 @@ namespace PunchPunchmaeum
 
         public void SetRagdoll(bool isEnable)
         {
+            print("렉돌 세팅");
             characterAnim.enabled = !isEnable;
             ragdollRigs.ForEach(rig => rig.isKinematic = !isEnable);
         }
 
+        public virtual void SetCharacterTag(string tag)
+        {
+            characterTag = tag;
+        }
 
 
     }
