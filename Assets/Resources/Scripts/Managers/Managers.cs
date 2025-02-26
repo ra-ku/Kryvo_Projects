@@ -8,20 +8,16 @@ namespace PunchPunchmaeum
     {
         static Managers s_Instance;
         public static Managers Instance { get { return s_Instance; } }
-        PlayerController playerController = new PlayerController();
-        public static PlayerController _playerController  { get { return Instance.playerController; } }
+        ResourceManager resourcesManager = new ResourceManager();
+        public static ResourceManager _resourcesManager { get { return Instance.resourcesManager; } }
 
-
-    void Start()
+        void Start()
         {
-            //√ ±‚»≠
-            s_Instance = this;
-
-            GameObject go = GameObject.Find("@Managers");
-            s_Instance = go.GetComponent<Managers>();
+            init();
         }
+
         static void init()
-        {
+        {            
             if (s_Instance == null)
             {
                 GameObject go = GameObject.Find("@Managers");

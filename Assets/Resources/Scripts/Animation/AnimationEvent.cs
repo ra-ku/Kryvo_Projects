@@ -2,17 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimationEvent : MonoBehaviour
+namespace PunchPunchmaeum
 {
-    // Start is called before the first frame update
-    void Start()
+    public class AnimationEvent : MonoBehaviour
     {
-        
-    }
+        [Tooltip("[This is an event script used in animation clips]")]
+        private Character owner;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Start()
+        {
+            Init();
+        }
+
+        private void Init()
+        {
+            owner = GetComponent<Character>();
+            if (owner == null)
+                Debug.Log("Failed to Find Owner");
+        }
+
+        public void OnAttack()
+        {
+            if (PlayerController._playerController == null)
+            {
+                Debug.LogError("PlayerController is not initialized.");
+                return;
+            }
+            else
+            {                
+                PlayerController._playerController.eFightingStance = EFightingStance.AttackStance;
+                print(PlayerController._playerController.eFightingStance);
+            }
+        }
+
+        public void OffAttack()
+        {
+            if (PlayerController._playerController == null)
+            {
+                Debug.LogError("PlayerController is not initialized.");
+                return;
+            }
+            else
+            {
+                PlayerController._playerController.eFightingStance = EFightingStance.DefaultStance;
+                print(PlayerController._playerController.eFightingStance);
+                owner.characterAnim.SetInteger(AnimationParams.HASH_FIGHT, 1);
+            }
+        }
     }
 }

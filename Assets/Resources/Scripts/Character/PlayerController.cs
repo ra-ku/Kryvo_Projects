@@ -2,16 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using Unity.VisualScripting;
 
 namespace PunchPunchmaeum
 {   
     public class PlayerController : MonoBehaviour
     {
+        static PlayerController Instance;
+        public static PlayerController _playerController { get { return Instance; } }
+
         [Header("Input Actions")]
         [SerializeField] private InputActionReference moveActionReference;
         [SerializeField] private InputActionReference AttackActionReference;
 
+        [Header("[Character]")]
+        [SerializeField] private Character owner;
 
+        [Header("Character - state")]
+        public EFightingStance eFightingStance;
+        public ECharacterState eCharacterState;
         private void OnEnable()
         {
             moveActionReference.action.Enable();
@@ -24,26 +33,44 @@ namespace PunchPunchmaeum
         private void OnDisable()
         {
             AttackActionReference.action.performed -= OnAttackPerformed;
-            moveActionReference.action.performed += OnMovePerformed;
+            moveActionReference.action.performed -= OnMovePerformed;
             moveActionReference.action.Disable();
             AttackActionReference.action.Disable();
         }
 
         private void Awake()
         {
-            
+            Init();
+            Instance = this;
         }
         private void Start()
         {
             
         }
 
+        private void Init()
+        {
+            owner = GetComponent<Character>();
+            if (owner == null)
+            {
+                Debug.LogError("Init failed: owner is null.");
+                return;
+            }
+
+            eFightingStance = EFightingStance.DefaultStance;
+            eCharacterState = ECharacterState.Alive;
+        }
+
         private void OnAttackPerformed(InputAction.CallbackContext context)
         {
-            // 공격 로직 처리
-            Debug.Log("Attack!");
-            
-        }
+            if (context.performed && eFightingStance == EFightingStance.DefaultStance)
+            {
+                print("공격실행");
+                owner.characterAnim.SetInteger(AnimationParams.HASH_FIGHT, 2);
+            }
+            else
+                return;            
+        }      
 
         private void OnMovePerformed(InputAction.CallbackContext context)
         {

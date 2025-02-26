@@ -24,7 +24,6 @@ namespace PunchPunchmaeum
         protected override void PostInitialize()
         {
             base.PostInitialize();
-            print("½ÇÇà");
         }
 
         protected override void OnControllerColliderHit(ControllerColliderHit hit)

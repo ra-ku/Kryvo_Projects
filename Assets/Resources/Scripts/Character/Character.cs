@@ -14,6 +14,7 @@ namespace PunchPunchmaeum
         [HideInInspector] AnimationEvent animationEvent;
         [HideInInspector] ComboComponent comboComponent;
         [HideInInspector] AttributeManager attributeManager;
+        [HideInInspector] PlayerController playerController;
 
         [Header("Character-Data")]
         public LocomotionData locomotionData;
@@ -45,8 +46,10 @@ namespace PunchPunchmaeum
             animationEvent = GetComponent<AnimationEvent>();
             comboComponent = GetComponent<ComboComponent>();
             attributeManager = GetComponent<AttributeManager>();
+            playerController = GetComponent<PlayerController>();
+
+
             SetLocomotionData();
-            //SetRagdoll(true);
         }
 
         protected virtual  void PostInitialize()
@@ -128,6 +131,7 @@ namespace PunchPunchmaeum
 
         public virtual void SetCharacterTag(string tag)
         {
+            gameObject.tag = tag;
             characterTag = tag;
         }
 

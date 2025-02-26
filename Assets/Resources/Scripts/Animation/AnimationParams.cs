@@ -9,6 +9,8 @@ namespace PunchPunchmaeum
         [Header("Enum Params")]
 
         [Header("Integer Params")]
+        public static readonly int HASH_FIGHT = Animator.StringToHash("FightStance");
+        public static readonly int HASH_IDLE = Animator.StringToHash("FightStance");
 
         [Header("Float Params")]
 

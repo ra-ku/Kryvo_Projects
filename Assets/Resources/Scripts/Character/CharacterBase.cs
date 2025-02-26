@@ -17,9 +17,18 @@ namespace PunchPunchmaeum
     public enum EFightingStance
     {
         Default = 0,
+        
+        DefaultStance,
+        AttackStance,
+        MovingStance
+    }
+    
+    public enum ECharacterState
+    {
+        Default =0,
 
-        Zap,
-        weaving
+        Alive,
+        Death,
     }
 
     [Serializable]
@@ -35,6 +44,7 @@ namespace PunchPunchmaeum
     // 캐릭터 필수 요소 필드 선언
     public abstract class CharacterBase : MonoBehaviour
     {
+
         [Header("component")]
         public  AudioSource characterAudio;
         public Animator characterAnim;

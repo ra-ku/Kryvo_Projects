@@ -7,10 +7,9 @@ namespace PunchPunchmaeum
     public class GameManagers : MonoBehaviour
     {
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
-            //1.
-            Managers mg = Managers.Instance;
+
         }
 
         // Update is called once per frame
