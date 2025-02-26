@@ -21,6 +21,9 @@ namespace PunchPunchmaeum
         [Header("Character - state")]
         public EFightingStance eFightingStance;
         public ECharacterState eCharacterState;
+
+        [Header("Field")]
+        public bool isattack;
         private void OnEnable()
         {
             moveActionReference.action.Enable();
@@ -63,13 +66,16 @@ namespace PunchPunchmaeum
 
         private void OnAttackPerformed(InputAction.CallbackContext context)
         {
+
             if (context.performed && eFightingStance == EFightingStance.DefaultStance)
             {
+                if(isattack)
+                {
+                    return;
+                }
                 print("공격실행");
                 owner.characterAnim.SetInteger(AnimationParams.HASH_FIGHT, 2);
-            }
-            else
-                return;            
+            }  
         }      
 
         private void OnMovePerformed(InputAction.CallbackContext context)

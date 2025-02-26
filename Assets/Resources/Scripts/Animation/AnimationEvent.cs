@@ -31,6 +31,7 @@ namespace PunchPunchmaeum
             else
             {                
                 PlayerController._playerController.eFightingStance = EFightingStance.AttackStance;
+                PlayerController._playerController.isattack = true;
                 print(PlayerController._playerController.eFightingStance);
             }
         }
@@ -46,6 +47,7 @@ namespace PunchPunchmaeum
             {
                 PlayerController._playerController.eFightingStance = EFightingStance.DefaultStance;
                 print(PlayerController._playerController.eFightingStance);
+                PlayerController._playerController.isattack = false;
                 owner.characterAnim.SetInteger(AnimationParams.HASH_FIGHT, 1);
             }
         }
