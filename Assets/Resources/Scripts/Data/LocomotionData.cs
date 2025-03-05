@@ -16,11 +16,15 @@ namespace PunchPunchmaeum
         public float height;
     }
 
-    [CreateAssetMenu(menuName ="PunchPunchmaeum/Locomotion/Locomotion Data" , fileName ="locomotionData")]
+    [CreateAssetMenu(menuName ="PunchPunchmaeum/ScriptableObject/Locomotion Data" , fileName ="locomotionData")]
     public class LocomotionData : ScriptableObject
     {
         [Header("CharacterControllerSetting")]
         public CharacterControllerSetting CharacterControllerSetting;
+        [Header("Character_EFightStance")]
+        public EFightingStance stance;
+        [Header("Character_ECharacterState")]
+        public ECharacterState characterState;
     }
 
 }

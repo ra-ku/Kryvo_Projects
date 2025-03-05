@@ -8,8 +8,11 @@ namespace PunchPunchmaeum
     {
         static Managers s_Instance;
         public static Managers Instance { get { return s_Instance; } }
+
         ResourceManager resourcesManager = new ResourceManager();
+        CameraManager cameraManager = new CameraManager();
         public static ResourceManager _resourcesManager { get { return Instance.resourcesManager; } }
+        public static CameraManager _cameraManager { get { return Instance.cameraManager; } }
 
         void Start()
         {
