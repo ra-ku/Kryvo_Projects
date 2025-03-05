@@ -7,7 +7,7 @@ namespace PunchPunchmaeum
     public class AnimationEvent : MonoBehaviour
     {
         [Tooltip("[This is an event script used in animation clips]")]
-        private Character owner;
+        [SerializeField] private Character owner;
 
         private void Start()
         {
@@ -48,7 +48,7 @@ namespace PunchPunchmaeum
                 PlayerController._playerController.eFightingStance = EFightingStance.DefaultStance;
                 print(PlayerController._playerController.eFightingStance);
                 PlayerController._playerController.isattack = false;
-                owner.characterAnim.SetInteger(AnimationParams.HASH_FIGHT, 1);
+                owner.characterAnim.SetInteger(AnimationParams.HASH_FIGHT, 1);                
             }
         }
     }

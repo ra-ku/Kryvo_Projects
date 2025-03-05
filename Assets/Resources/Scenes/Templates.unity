@@ -311,6 +311,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4838823066467144361, guid: d54715e4d36911949a85ee025b487887, type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838823066467144361, guid: d54715e4d36911949a85ee025b487887, type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4838823066467144361, guid: d54715e4d36911949a85ee025b487887, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6490224277267328075, guid: d54715e4d36911949a85ee025b487887, type: 3}
       propertyPath: m_Height
       value: 1.8

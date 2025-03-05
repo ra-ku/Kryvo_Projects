@@ -66,21 +66,21 @@ namespace PunchPunchmaeum
 
         private void OnAttackPerformed(InputAction.CallbackContext context)
         {
-
-            if (context.performed && eFightingStance == EFightingStance.DefaultStance)
+            if (isattack)
             {
-                if(isattack)
-                {
-                    return;
-                }
-                print("공격실행");
+                return;
+            }
+            else if(!isattack && context.performed && eFightingStance == EFightingStance.DefaultStance)
+            {
                 owner.characterAnim.SetInteger(AnimationParams.HASH_FIGHT, 2);
-            }  
+            }           
         }      
 
         private void OnMovePerformed(InputAction.CallbackContext context)
         {
             Debug.Log("Weaving!");
         }
+
+        
     }
 }
