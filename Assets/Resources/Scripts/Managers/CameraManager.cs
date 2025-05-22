@@ -13,7 +13,8 @@ namespace PunchPunchmaeum
         Weaving,
         Sequence,
     }
-    public class CameraManager
+
+    public class CameraManager : MonoBehaviour
     {
         [Header("Camera Manager")]
         [SerializeField] private CinemachineBrain brain;
@@ -84,9 +85,15 @@ namespace PunchPunchmaeum
 
 
         }
-
+        private void SetCameraScreen(Vector2 cameraScreen , float duration)
+        {
+            if (C_CameraScreen != null) StopCoroutine(C_CameraScreen);
+            C_CameraScreen = StartCoroutine(CameraScreen(cameraScreen, duration));
+        }
         private void  SetOffsetData(Vector3 offset , float duration )
         {
+            if (C_CameraOffset != null) StopCoroutine(C_CameraOffset);
+            C_CameraOffset = StartCoroutine(CameraOffset(offset, duration));
             
         }
 
@@ -97,6 +104,16 @@ namespace PunchPunchmaeum
         }
 
 
+        // ÄÚ·çÆ¾
+        private IEnumerator CameraOffset(Vector3 offset, float duration)
+        {
+            yield return new WaitForSeconds(duration);
+        }
+
+        private IEnumerator CameraScreen(Vector2 cameraScreen , float duration)
+        {
+            yield break;
+        }
 
     }
 }
