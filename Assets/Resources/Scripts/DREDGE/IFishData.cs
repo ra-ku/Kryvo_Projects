@@ -9,6 +9,5 @@ namespace DREDGE
         public void SetName();
         public void SetDescription();
         public void SetSize();
-
     }
 }
