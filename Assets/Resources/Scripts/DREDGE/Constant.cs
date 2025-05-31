@@ -38,5 +38,10 @@ namespace DREDGE
                 { FishType.Swordfish, SWORD_FISH },
             };
         }
+
+        public static class DefineAngle
+        {
+            // °¢µµ
+        }
     }
 }
