@@ -24,6 +24,8 @@ namespace DREDGE
         private int successTime;
         private int failureTime;
 
+        private FishingBlock _block = new ();
+
         public IManager Init()
         {
             Debug.Log("FishingManager Initialized");
@@ -35,7 +37,11 @@ namespace DREDGE
             ////TODO 
             isActiveFishing = true;
             successTime = 0;
-            failureTime = 0;            
+            failureTime = 0;
+
+
+            // block 초기화
+            _block.InitializeHitZone();
             
         }
 
@@ -45,14 +51,18 @@ namespace DREDGE
             isActiveFishing = false;
         }
 
-        private void Tick()
+        public void Tick()
         {
-            if(isActiveFishing && Input.GetKeyDown(KeyCode.F))
+            if (!isActiveFishing)
             {
-                //성공 판정 및 실패 판정
+                return;
             }
         }
 
+        public bool IsActiveFishing()
+        {
+            return isActiveFishing;
+        }
 
     }
 }

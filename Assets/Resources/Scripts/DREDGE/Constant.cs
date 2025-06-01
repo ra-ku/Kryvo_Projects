@@ -13,16 +13,52 @@ namespace DREDGE
 
         public static class FishSize
         {
-            public static readonly int[,] BLUE_MACKEREL = new int[,] { { 1, 1 } };
-            public static readonly int[,] COD = new int[,] { { 1, 1 }, { 0, 1 } };
-            public static readonly int[,] ARROW_SQUID = new int[,] { { 1, 1 } };
-            public static readonly int[,] GREY_EEL = new int[,] { { 1, 1, 1 } };
-            public static readonly int[,] GULF_FLOUNDER = new int[,] { { 1, 1 }, { 1, 1 } };
-            public static readonly int[,] BLACK_GROUPER = new int[,] { { 1, 1 }, { 1, 1 } };
-            public static readonly int[,] STINGRAY = new int[,] { { 0, 1, 1 }, { 1, 1, 1 }, { 0, 1, 1 } };
-            public static readonly int[,] SAILFISH = new int[,] { { 0, 1, 1, 1, 0, 0 }, { 1, 1, 1, 1, 1, 1 } };
-            public static readonly int[,] BRONZE_WHALER = new int[,] { { 0, 1, 0, 0 }, { 1, 1, 1, 1 }, { 0, 0, 1, 0 } };
-            public static readonly int[,] SWORD_FISH = new int[,] { { 0, 0, 1, 0, 0, 1 }, { 1, 1, 1, 1, 1, 1 } };
+            public static readonly int[,] BLUE_MACKEREL = new int[,]
+            {
+                { 1, 1 } 
+            };
+            public static readonly int[,] COD = new int[,]
+            {
+                { 1, 1 }, 
+                { 0, 1 } 
+            };
+            public static readonly int[,] ARROW_SQUID = new int[,]
+            {
+                { 1, 1 } 
+            };
+            public static readonly int[,] GREY_EEL = new int[,]
+            { 
+                { 1, 1, 1 }
+            };
+            public static readonly int[,] GULF_FLOUNDER = new int[,]
+            { 
+                { 1, 1 }, { 1, 1 }
+            };
+            public static readonly int[,] BLACK_GROUPER = new int[,]
+            { 
+                { 1, 1 }, { 1, 1 }
+            };
+            public static readonly int[,] STINGRAY = new int[,] {
+                { 0, 1, 1 }, 
+                { 1, 1, 1 }, 
+                { 0, 1, 1 }
+            };
+            public static readonly int[,] SAILFISH = new int[,] 
+            {
+                { 0, 1, 1, 1, 0, 0 }, 
+                { 1, 1, 1, 1, 1, 1 } 
+            };
+            public static readonly int[,] BRONZE_WHALER = new int[,]
+            { 
+                { 0, 1, 0, 0 },
+                { 1, 1, 1, 1 },
+                { 0, 0, 1, 0 }
+            };
+            public static readonly int[,] SWORD_FISH = new int[,]
+            {
+                { 0, 0, 1, 0, 0, 1 },
+                { 1, 1, 1, 1, 1, 1 }
+            };
 
             public static readonly Dictionary<FishType, int[,]> Sizes = new()
             {
@@ -42,6 +78,11 @@ namespace DREDGE
         public static class DefineAngle
         {
             // °¢µµ
+        }
+
+        public static class BoatSize
+        {
+
         }
     }
 }

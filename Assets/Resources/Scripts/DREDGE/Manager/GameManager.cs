@@ -20,8 +20,8 @@ namespace DREDGE
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            _managers.Add(FishingManager.Instance);
             _managers.Add(RandomManager.Instance);
+            _managers.Add(FishingManager.Instance);            
         }
 
         private void Start()
@@ -30,6 +30,17 @@ namespace DREDGE
             {
                 manager.Init();
             }
+
+            FishingManager.Instance.StartFishing();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.F) && FishingManager.Instance.IsActiveFishing())
+            {
+                FishingManager.Instance.Tick();
+            }
+            
         }
     }
 }

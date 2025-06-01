@@ -8,40 +8,26 @@ namespace DREDGE
 {
     public class FishingBlock
     {        
-        // HitZone을 몇번 성공시켰는지 확인 하기 위한 코드 
-        [Tooltip("field")]
-        private int successTime =0;
-        private int successfulHitsRequired;
-
-        private List<HitZone> hitZone = new();
-        
+        private List<HitZone> hitZone = new();        
 
         public void InitializeHitZone()
-        {
-            
-            hitZone.Add(new HitZone(10f, 20f));
-
+        {            
+            hitZone.Add(new HitZone(10f, 30f));
+            hitZone.Add(new HitZone(70f, 90f));
+            hitZone.Add(new HitZone(140f, 160f));
+            hitZone.Add(new HitZone(210f, 230f));
+            hitZone.Add(new HitZone(320f, 350f));
         }
 
-        public bool CheckHit(float currentAngle)
+        public HitZone PickRandomZone()
         {
-            foreach (var zone in hitZone)
-            {
-                if (zone.IsWithin(currentAngle))
-                {
-                    successTime++;
-                    return true;
-                }
-            }
-            return false;
+            HitZone[] result = RandomManager.Instance.RandomInCollection(hitZone, 1, false);
+            return (result != null && result.Length > 0) ? result[0] : null;
         }
 
-
-
-
-
-
-
-
+        public HitZone[] PickRandomZones(int amount, bool allowDuplicate)
+        {
+            return RandomManager.Instance.RandomInCollection(hitZone, amount, allowDuplicate);
+        }
     }
 }
