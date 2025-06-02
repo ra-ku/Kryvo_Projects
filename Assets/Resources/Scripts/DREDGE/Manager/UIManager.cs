@@ -78,7 +78,9 @@ namespace DREDGE
                 name = typeof(T).Name;
             }
 
-            GameObject go = Util.Instantiate($"UI/Scene/{name}");
+            string path = $"{Constant.Path.DEFAULT_UI_SCENE_PATH}/{name}";
+            GameObject go = Util.Instantiate(path);
+
             T sceneUI = Util.GetOrAddComponent<T>(go);
 
             return sceneUI;

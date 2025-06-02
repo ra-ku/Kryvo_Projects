@@ -39,8 +39,7 @@ namespace DREDGE
             if (Input.GetKeyDown(KeyCode.F) && FishingManager.Instance.IsActiveFishing())
             {
                 FishingManager.Instance.Tick();
-            }
-            
+            }            
         }
     }
 }

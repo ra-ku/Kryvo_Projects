@@ -24,6 +24,7 @@ namespace DREDGE
         private int successTime;
         private int failureTime;
 
+        [Header("Component")]
         private FishingBlock _block = new ();
 
         public IManager Init()
@@ -39,16 +40,18 @@ namespace DREDGE
             successTime = 0;
             failureTime = 0;
 
-
             // block 초기화
             _block.InitializeHitZone();
-            
+            // UI 생성
+            UIManager.ShowSceneUI<UI_DREDGE>("UI_DREDGE");
         }
 
         public void FinishingFishing()
         {
             ////TODO 
             isActiveFishing = false;
+            successTime = 0;
+            failureTime = 0;
         }
 
         public void Tick()
@@ -57,6 +60,9 @@ namespace DREDGE
             {
                 return;
             }
+
+            Debug.Log("키를 입력함!");
+            
         }
 
         public bool IsActiveFishing()

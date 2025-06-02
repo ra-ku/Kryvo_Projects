@@ -8,7 +8,7 @@ namespace DREDGE
     {
         public class Path
         {
-            //TODO
+            public const string DEFAULT_UI_SCENE_PATH = "UI/Scene";
         }
 
         public static class FishSize
@@ -77,7 +77,7 @@ namespace DREDGE
 
         public static class DefineAngle
         {
-            // °¢µµ
+
         }
 
         public static class BoatSize
