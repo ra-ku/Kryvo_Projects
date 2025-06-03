@@ -75,9 +75,9 @@ namespace DREDGE
             };
         }
 
-        public static class DefineAngle
+        public class RotationSpeed
         {
-
+            public const float STICK_ROTATION_SPEED = 60.0f;
         }
 
         public static class BoatSize

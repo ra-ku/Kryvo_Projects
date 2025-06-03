@@ -41,7 +41,6 @@ namespace DREDGE
         [Header("Slider")]
         private Slider fishingGage;
 
-
         void Start()
         {
             init();
@@ -55,6 +54,9 @@ namespace DREDGE
             hitZone2 = Get<Image>((int)Images.HitZone2);
 
             fishingGage = Get<Slider>((int)Sliders.FishingGage);
+
+            HitZone[] hitzones = FishingManager.Instance.GetHitZone();
+            OnHitZoneChanged(hitzones);
         }
 
         private void init()
@@ -71,7 +73,77 @@ namespace DREDGE
         // Update is called once per frame
         void Update()
         {
+            FishingStick_UI();
+            FishingGage_UI();
+        }
 
+        public void FishingStick_UI()
+        {
+            if (fishingStick != null)
+            {
+                ///TODO
+                //360도로 Time.deltaTime 을 사용해서 일정한 속도로 회전
+
+                float deltaAngle = Constant.RotationSpeed.STICK_ROTATION_SPEED * Time.deltaTime;
+                RectTransform rt = fishingStick.rectTransform;                
+                Vector3 euler = rt.localEulerAngles;
+
+                float newZ = euler.z + deltaAngle;
+                if (newZ >= 360f) newZ -= 360f;
+
+                rt.localEulerAngles = new Vector3(0,0,newZ);                 
+            }
+            else
+                return;
+        }
+
+        public void FishingGage_UI()
+        {
+            if (fishingGage != null)
+            {
+                float currentFishingGage = FishingManager.Instance.GetFishingGage();
+                fishingGage.value = Mathf.Clamp(currentFishingGage, 0f, 1f);
+            }
+            else
+                return;
+        }
+
+        public void OnHitZoneChanged(HitZone[] hitzones)
+        {
+            if (hitzones.Length < 3 || hitzones == null)
+                return;
+            if (hitZone == null || hitZone1 == null || hitZone2 == null)
+                return;
+
+            float hitzone_min = hitzones[0].minAngle;
+            float hitzone_max = hitzones[0].maxAngle;
+            UpdateSingleHitZoneUI(hitZone, hitzone_min, hitzone_max);
+
+            float hitzone1_min = hitzones[1].minAngle;
+            float hitzone1_max = hitzones[1].maxAngle;
+            UpdateSingleHitZoneUI(hitZone1, hitzone1_min, hitzone1_max);
+
+            float hitzone2_min = hitzones[2].minAngle;
+            float hitzone2_max= hitzones[2].maxAngle;
+            UpdateSingleHitZoneUI(hitZone2, hitzone2_min, hitzone2_max);
+        }
+
+        public void UpdateSingleHitZoneUI(Image img, float minAngle, float maxAngle)
+        {
+            float span = maxAngle - minAngle;
+            if(span < 0f)
+            {
+                span += 360f;
+            }
+
+            img.type = Image.Type.Filled;
+            img.fillMethod = Image.FillMethod.Radial360;
+            img.fillOrigin = 2;
+            img.fillClockwise = true;
+
+            img.fillAmount = Mathf.Clamp01(span / 360f);
+
+            img.rectTransform.localEulerAngles = new Vector3(0f, 0f, minAngle);
         }
 
         private void FindComponent()
