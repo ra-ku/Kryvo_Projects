@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace DREDGE
@@ -21,6 +22,7 @@ namespace DREDGE
         #endregion 
         [Header("Value")]
         private bool isActiveFishing;
+        private float _currentfishingStickAngle;
         private float fishingGage;
         private int successTime;
         private int failureTime;
@@ -53,7 +55,7 @@ namespace DREDGE
 
         public void FinishingFishing()
         {
-            ////TODO 
+            //TODO 
             isActiveFishing = false;
             successTime = 0;
             failureTime = 0;
@@ -67,6 +69,24 @@ namespace DREDGE
             }
 
             Debug.Log("키를 입력함!");
+
+        }
+
+        public void FishingGageHandle()
+        {
+            // HitZone을 맞추면 일정 비율 상승
+            // HitZone을 못맞추면 일정 비율 하락
+        }
+
+        public void CheckFishingStickInHitZone()
+        {
+            if (!isActiveFishing)
+                return;
+
+            float deltaAngle = Constant.RotationSpeed.STICK_ROTATION_SPEED * Time.deltaTime;
+            if (_currentfishingStickAngle >= 360f)
+                _currentfishingStickAngle -= 360f;
+
 
         }
 

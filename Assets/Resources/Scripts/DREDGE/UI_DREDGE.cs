@@ -91,12 +91,11 @@ namespace DREDGE
                 float newZ = euler.z + deltaAngle;
                 if (newZ >= 360f) newZ -= 360f;
 
-                rt.localEulerAngles = new Vector3(0,0,newZ);                 
+                rt.localEulerAngles = new Vector3(0,0,newZ);
             }
             else
                 return;
         }
-
         public void FishingGage_UI()
         {
             if (fishingGage != null)
@@ -150,6 +149,7 @@ namespace DREDGE
         {
             
         }
+
     }
 }
 

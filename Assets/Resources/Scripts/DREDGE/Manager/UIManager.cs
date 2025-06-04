@@ -70,7 +70,6 @@ namespace DREDGE
             }
         }
 
-
         public static T ShowSceneUI<T>(string name = null) where T : UI_Base
         {
             if (string.IsNullOrEmpty(name))
