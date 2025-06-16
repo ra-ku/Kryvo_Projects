@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace DREDGE
@@ -29,6 +30,7 @@ namespace DREDGE
 
         [Header("Component")]
         private FishingBlock _block = new();
+        private UI_DREDGE _ui;
         private HitZone[] hitzones;
 
         public IManager Init()
@@ -48,9 +50,20 @@ namespace DREDGE
 
             // hitZone 설정
             hitzones = _block.PickRandomZones(3,false);
+            for(int i=0; i<hitzones.Length; i++)
+            {
+                float span = hitzones[i].maxAngle - hitzones[i].minAngle;
+                if(span < 0)
+                {
+                    span += 360;
+                }
+                Debug.Log($"hitzone의 최저각도 {hitzones[i].minAngle}");
+                Debug.Log($"hitzone의 최고각도 {hitzones[i].maxAngle}");
+                Debug.Log($"hitzones {span}");
+            }
 
             // UI 생성
-            UIManager.ShowSceneUI<UI_DREDGE>("UI_DREDGE");
+            _ui = UIManager.ShowSceneUI<UI_DREDGE>("UI_DREDGE");            
         }
 
         public void FinishingFishing()
@@ -69,6 +82,7 @@ namespace DREDGE
             }
 
             Debug.Log("키를 입력함!");
+            CheckFishingStickInHitZone();
 
         }
 
@@ -80,14 +94,23 @@ namespace DREDGE
 
         public void CheckFishingStickInHitZone()
         {
-            if (!isActiveFishing)
+            if (!isActiveFishing || _ui == null)
                 return;
-
-            float deltaAngle = Constant.RotationSpeed.STICK_ROTATION_SPEED * Time.deltaTime;
-            if (_currentfishingStickAngle >= 360f)
-                _currentfishingStickAngle -= 360f;
-
-
+            
+            float angle = _ui.GetUIValue();
+            Debug.Log($"{angle}");
+            if (hitzones[0].minAngle <= angle && hitzones[0].maxAngle >= angle)
+            {
+                Debug.Log("성공");
+            }
+            if (hitzones[1].minAngle <= angle && hitzones[1].maxAngle >= angle)
+            {
+                Debug.Log("성공2");
+            }
+            if (hitzones[2].minAngle <= angle && hitzones[2].maxAngle >= angle)
+            {
+                Debug.Log("성공3");
+            }
         }
 
         public bool IsActiveFishing()
@@ -101,7 +124,7 @@ namespace DREDGE
         }
 
         public HitZone[] GetHitZone()
-        {
+        {            
             if (hitzones.Length < 3 )
             {
                 Debug.Log("hitZone is Null");

@@ -13,10 +13,8 @@ namespace DREDGE
         public void InitializeHitZone()
         {            
             hitZone.Add(new HitZone(10f, 30f));
-            hitZone.Add(new HitZone(70f, 90f));
-            hitZone.Add(new HitZone(140f, 160f));
+            hitZone.Add(new HitZone(110f, 130f));
             hitZone.Add(new HitZone(210f, 230f));
-            hitZone.Add(new HitZone(320f, 350f));
         }
 
         public HitZone PickRandomZone()

@@ -81,7 +81,6 @@ namespace DREDGE
         {
             if (fishingStick != null)
             {
-                ///TODO
                 //360도로 Time.deltaTime 을 사용해서 일정한 속도로 회전
 
                 float deltaAngle = Constant.RotationSpeed.STICK_ROTATION_SPEED * Time.deltaTime;
@@ -141,8 +140,8 @@ namespace DREDGE
             img.fillClockwise = true;
 
             img.fillAmount = Mathf.Clamp01(span / 360f);
-
-            img.rectTransform.localEulerAngles = new Vector3(0f, 0f, minAngle);
+            
+            img.rectTransform.localEulerAngles = new Vector3(0f, 0f, minAngle-10f);
         }
 
         private void FindComponent()
@@ -150,6 +149,18 @@ namespace DREDGE
             
         }
 
+        public float GetUIValue()
+        {
+            if (fishingStick == null)
+            {
+                return 0.0f;
+            }
+            else
+            {
+                float localZvalue = fishingStick.rectTransform.localEulerAngles.z;
+                return localZvalue;
+            }
+        }
     }
 }
 
