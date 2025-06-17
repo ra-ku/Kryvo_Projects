@@ -81,15 +81,13 @@ namespace DREDGE
         {
             if (fishingStick != null)
             {
-                //360도로 Time.deltaTime 을 사용해서 일정한 속도로 회전
-
                 float deltaAngle = Constant.RotationSpeed.STICK_ROTATION_SPEED * Time.deltaTime;
                 RectTransform rt = fishingStick.rectTransform;                
                 Vector3 euler = rt.localEulerAngles;
 
-                float newZ = euler.z + deltaAngle;
+                float newZ = euler.z - deltaAngle;
                 if (newZ >= 360f) newZ -= 360f;
-
+                
                 rt.localEulerAngles = new Vector3(0,0,newZ);
             }
             else
@@ -97,10 +95,17 @@ namespace DREDGE
         }
         public void FishingGage_UI()
         {
+            
             if (fishingGage != null)
             {
-                float currentFishingGage = FishingManager.Instance.GetFishingGage();
-                fishingGage.value = Mathf.Clamp(currentFishingGage, 0f, 1f);
+                
+                float currentFishingGage = FishingManager.Instance.GetFishingGage();                
+                float maxFishingGage = FishingManager.Instance.GetMaxFishingGage();
+
+                if (maxFishingGage <= 0f)
+                    return;
+
+                fishingGage.normalizedValue = Mathf.Clamp01(currentFishingGage / maxFishingGage);
             }
             else
                 return;
@@ -129,19 +134,17 @@ namespace DREDGE
         public void UpdateSingleHitZoneUI(Image img, float minAngle, float maxAngle)
         {
             float span = maxAngle - minAngle;
-            if(span < 0f)
-            {
-                span += 360f;
-            }
+            if (span < 0f) span += 360f;
 
             img.type = Image.Type.Filled;
             img.fillMethod = Image.FillMethod.Radial360;
-            img.fillOrigin = 2;
-            img.fillClockwise = true;
+            img.fillOrigin = 2;      
+            img.fillClockwise = false;
 
-            img.fillAmount = Mathf.Clamp01(span / 360f);
-            
-            img.rectTransform.localEulerAngles = new Vector3(0f, 0f, minAngle-10f);
+            float clampedSpan = Mathf.Clamp(span, 0f, 360f);
+            img.fillAmount = clampedSpan / 360f;
+
+            img.rectTransform.localRotation = Quaternion.Euler(0f, 0f, minAngle);
         }
 
         private void FindComponent()

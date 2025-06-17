@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace DREDGE
 {
@@ -15,6 +14,9 @@ namespace DREDGE
             hitZone.Add(new HitZone(10f, 30f));
             hitZone.Add(new HitZone(110f, 130f));
             hitZone.Add(new HitZone(210f, 230f));
+            hitZone.Add(new HitZone(60f, 80f));
+            hitZone.Add(new HitZone(300f, 320f));
+            hitZone.Add(new HitZone(250, 270f));
         }
 
         public HitZone PickRandomZone()

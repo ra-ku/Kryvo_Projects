@@ -77,9 +77,13 @@ namespace DREDGE
 
         public class RotationSpeed
         {
-            public const float STICK_ROTATION_SPEED = 60.0f;
+            public const float STICK_ROTATION_SPEED = 80.0f;
         }
 
+        public class FloatValue
+        {
+            public const float FISHING_GAGE_SPEED = 10.0f;
+        }
         public static class BoatSize
         {
 
