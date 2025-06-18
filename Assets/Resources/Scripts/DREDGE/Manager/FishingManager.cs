@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace DREDGE
-{
+{   
+
     public class FishingManager : IManager
     {
         // 낚시 미니게임의 전반적인 시작과 끝을 다루기 위한 코드

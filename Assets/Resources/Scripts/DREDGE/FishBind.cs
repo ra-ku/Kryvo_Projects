@@ -9,7 +9,7 @@ namespace DREDGE
     public enum FishType
     {
         None = 0,
-        Blue_Mackerel,  //연어
+        Blue_Mackerel,  //망치고등어
         Cod,            //대구
         Arrow_Squid,    //화살 오징어
         Grey_Eel,       //회색 장어
@@ -43,6 +43,7 @@ namespace DREDGE
             Debug.LogWarning($"{type}에 대한 FishSize가 존재하지 않습니다.");
             return null;
         }
+        
 
         public static Dictionary<FishType, int[,]> GetFishSizeDictionary()
         {
