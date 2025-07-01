@@ -20,7 +20,7 @@ namespace DREDGE
             public static readonly int[,] COD = new int[,]
             {
                 { 1, 1 }, 
-                { 0, 1 } 
+                { 0, 1 }
             };
             public static readonly int[,] ARROW_SQUID = new int[,]
             {
@@ -32,11 +32,13 @@ namespace DREDGE
             };
             public static readonly int[,] GULF_FLOUNDER = new int[,]
             { 
-                { 1, 1 }, { 1, 1 }
+                { 1, 1 },
+                { 1, 1 }
             };
             public static readonly int[,] BLACK_GROUPER = new int[,]
             { 
-                { 1, 1 }, { 1, 1 }
+                { 1, 1 },
+                { 1, 1 }
             };
             public static readonly int[,] STINGRAY = new int[,] {
                 { 0, 1, 1 }, 
@@ -84,9 +86,20 @@ namespace DREDGE
         {
             public const float FISHING_GAGE_SPEED = 10.0f;
         }
+
         public static class BoatSize
         {
-
+            public static readonly int[,] DEFAULT_Ship = new int[,]
+            {
+                {1,1,0,0,1,1 },
+                {1,0,0,0,0,1 },
+                {0,0,0,0,0,0 },
+                {0,0,0,0,0,0 },
+                {0,0,0,0,0,0 },
+                {0,0,0,0,0,0 },
+                {1,0,0,0,0,1 },
+                {1,1,0,0,1,1 },
+            };
         }
     }
 }

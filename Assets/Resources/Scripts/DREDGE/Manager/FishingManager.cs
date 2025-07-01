@@ -47,7 +47,7 @@ namespace DREDGE
           
             _block.InitializeHitZone();
             hitzones = _block.PickRandomZones(3,false);
-            _ui = UIManager.ShowSceneUI<UI_DREDGE>("UI_DREDGE");            
+            _ui = UIManager.ShowSceneUI<UI_DREDGE>("UI_DREDGE");
         }
 
         public void FinishingFishing()
