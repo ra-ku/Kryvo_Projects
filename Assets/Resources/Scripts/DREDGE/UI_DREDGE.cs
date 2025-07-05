@@ -20,6 +20,45 @@ namespace DREDGE
             HitZone,
             HitZone1,
             HitZone2,
+
+            //Freight
+            FishingFreightBackGround,
+            BoatSize,
+            BoatSize1,
+            BoatSize2,
+            BoatSize3,
+            BoatSize4,
+            BoatSize5,
+            BoatSize6,
+            BoatSize7,
+            BoatSize8,
+            BoatSize9,
+            BoatSize10,
+            BoatSize11,
+            BoatSize12,
+            BoatSize13,
+            BoatSize14,
+            BoatSize15,
+            BoatSize16,
+            BoatSize17,
+            BoatSize18,
+            BoatSize19,
+            BoatSize20,
+            BoatSize21,
+            BoatSize22,
+            BoatSize23,
+            BoatSize24,
+            BoatSize25,
+            BoatSize26,
+            BoatSize27,
+            BoatSize28,
+            BoatSize29,
+            BoatSize30,
+            BoatSize31,
+            BoatSize32,
+            BoatSize33,
+            BoatSize34,
+            BoatSize35,
         }
 
         enum GameObjects
@@ -38,6 +77,8 @@ namespace DREDGE
         private Image hitZone1;
         private Image hitZone2;
 
+        private Image[] BoatSize = new Image[36];  
+
         [Header("Slider")]
         private Slider fishingGage;
 
@@ -55,8 +96,17 @@ namespace DREDGE
 
             fishingGage = Get<Slider>((int)Sliders.FishingGage);
 
+
+            for (int i = 0; i < BoatSize.Length; i++)
+            {
+                BoatSize[i] = Get<Image>((int)Images.BoatSize + i);
+                Debug.Log($"{BoatSize[i]}");
+            }
+
             HitZone[] hitzones = FishingManager.Instance.GetHitZone();
             OnHitZoneChanged(hitzones);
+
+
         }
 
         private void init()

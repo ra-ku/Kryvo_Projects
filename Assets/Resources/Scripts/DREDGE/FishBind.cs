@@ -23,31 +23,50 @@ namespace DREDGE
 
     public class FishBind
     {
-        private static readonly Dictionary<FishType, int[,]> m_fish = new();
+        private static readonly Dictionary<FishType, int[,]> m_fishSize = new();
+        private static readonly Dictionary<FishType,Fish> m_fishData = new();
 
         public static void Initialize()
         {
-            if (m_fish.Count > 0) return;
+            if (m_fishSize.Count > 0) return;
 
+            // size mapping
             foreach (var pair in Constant.FishSize.Sizes)
             {
-                m_fish.TryAdd(pair.Key, pair.Value);
+                m_fishSize.TryAdd(pair.Key, pair.Value);
+            }
+            
+
+            // new Fish save in m_fishData
+            foreach(FishType type in System.Enum.GetValues(typeof(FishType)))
+            {
+                if(type == FishType.None) continue;
+
+                string fishName = type.ToString();
+                var fish = new Fish(type, fishName);
+
+                fish.SetDescription($" this is a {fishName}");
+
+                m_fishData.TryAdd(type, fish);
             }
         }
 
         public static int[,] GetFishSize(FishType type)
         {
-            if (m_fish.TryGetValue(type, out var size))
+            if (m_fishSize.TryGetValue(type, out var size))
                 return size;
 
             Debug.LogWarning($"{type}에 대한 FishSize가 존재하지 않습니다.");
             return null;
-        }
-        
+        }       
 
-        public static Dictionary<FishType, int[,]> GetFishSizeDictionary()
+        public static Fish GetFishData(FishType type)
         {
-            return m_fish;
+            if (m_fishData.TryGetValue(type, out var fish))
+                return fish;
+
+            Debug.LogWarning($"{type}에 대한 FishData가 존재하지 않습니다.");
+            return null;
         }
     }
 }

@@ -6,8 +6,6 @@ namespace DREDGE
 {
     public interface IFishData
     {
-        public void SetName();
-        public void SetDescription();
-        public void SetSize();
+        public void SetDescription(string name);
     }
 }
