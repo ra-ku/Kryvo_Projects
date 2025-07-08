@@ -14,6 +14,7 @@ namespace DREDGE
 
         enum Images
         {
+            //Fishing
             FishingStick,            
             Fish,
             FishingBackGround,
@@ -77,7 +78,7 @@ namespace DREDGE
         private Image hitZone1;
         private Image hitZone2;
 
-        private Image[] BoatSize = new Image[36];  
+        private Image[] boatSize = new Image[36];  
 
         [Header("Slider")]
         private Slider fishingGage;
@@ -97,16 +98,14 @@ namespace DREDGE
             fishingGage = Get<Slider>((int)Sliders.FishingGage);
 
 
-            for (int i = 0; i < BoatSize.Length; i++)
+            for (int i = 0; i < boatSize.Length; i++)
             {
-                BoatSize[i] = Get<Image>((int)Images.BoatSize + i);
-                Debug.Log($"{BoatSize[i]}");
+                boatSize[i] = Get<Image>((int)Images.BoatSize + i);
             }
 
             HitZone[] hitzones = FishingManager.Instance.GetHitZone();
             OnHitZoneChanged(hitzones);
-
-
+            ApplyBoatSize();
         }
 
         private void init()
@@ -125,6 +124,7 @@ namespace DREDGE
         {
             FishingStick_UI();
             FishingGage_UI();
+            UpdateBoatUI();
         }
 
         public void FishingStick_UI()
@@ -143,6 +143,7 @@ namespace DREDGE
             else
                 return;
         }
+
         public void FishingGage_UI()
         {
             
@@ -196,6 +197,42 @@ namespace DREDGE
 
             img.rectTransform.localRotation = Quaternion.Euler(0f, 0f, minAngle);
         }
+
+        public void ApplyBoatSize()
+        {
+            int[,] _boatGrid = Constant.BoatSize.DEFAULT_SHIP;
+            int gridRows = _boatGrid.GetLength(0);
+            int gridCols = _boatGrid.GetLength(1);
+
+            int uiIndex = 0; 
+
+            for(int y =0; y < gridRows; y++ )
+            {
+                for (int x = 0; x < gridCols; x++)
+                {
+                    if (_boatGrid[y, x] == 1)
+                        continue;
+
+                    Debug.Log($"행 : {y} , 열 : {x}");
+
+                    Image img = boatSize[uiIndex];
+                    
+                    if (img == null)
+                    {
+                        Debug.LogError("boat image is null");
+                    }
+                    uiIndex++;
+                }
+            }
+        }
+
+        public void UpdateBoatUI()
+        {
+            // boatSize1 ~ 35개 이미지에서 36개의 그래픽 레이캐스트를 사용해서 물고기 ui가 해당 ray를 가린다면 boatSize의 이미지 색 변화
+            // 
+
+        }
+
 
         private void FindComponent()
         {

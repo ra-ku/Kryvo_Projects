@@ -23,42 +23,26 @@ namespace DREDGE
 
     public class FishBind
     {
-        private static readonly Dictionary<FishType, int[,]> m_fishSize = new();
+        
         private static readonly Dictionary<FishType,Fish> m_fishData = new();
 
         public static void Initialize()
-        {
-            if (m_fishSize.Count > 0) return;
-
-            // size mapping
-            foreach (var pair in Constant.FishSize.Sizes)
-            {
-                m_fishSize.TryAdd(pair.Key, pair.Value);
-            }
-            
-
+        { 
             // new Fish save in m_fishData
             foreach(FishType type in System.Enum.GetValues(typeof(FishType)))
             {
                 if(type == FishType.None) continue;
 
                 string fishName = type.ToString();
-                var fish = new Fish(type, fishName);
+                int[,] size = Constant.FishSize.Sizes.ContainsKey(type) ? Constant.FishSize.Sizes[type] : null;
+
+                var fish = new Fish(type, fishName , size);
 
                 fish.SetDescription($" this is a {fishName}");
 
                 m_fishData.TryAdd(type, fish);
             }
-        }
-
-        public static int[,] GetFishSize(FishType type)
-        {
-            if (m_fishSize.TryGetValue(type, out var size))
-                return size;
-
-            Debug.LogWarning($"{type}에 대한 FishSize가 존재하지 않습니다.");
-            return null;
-        }       
+        }   
 
         public static Fish GetFishData(FishType type)
         {

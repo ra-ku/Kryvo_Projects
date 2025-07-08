@@ -89,7 +89,7 @@ namespace DREDGE
 
         public static class BoatSize
         {
-            public static readonly int[,] DEFAULT_Ship = new int[,]
+            public static readonly int[,] DEFAULT_SHIP = new int[,]
             {
                 {1,1,0,0,1,1 },
                 {1,0,0,0,0,1 },
