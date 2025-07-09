@@ -32,6 +32,7 @@ namespace DREDGE
         private FishingBlock _block = new();
         private UI_DREDGE _ui;
         private HitZone[] hitzones;
+        private FishBind _fish;
 
         public IManager Init()
         {

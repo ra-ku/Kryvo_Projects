@@ -216,6 +216,7 @@ namespace DREDGE
                     Debug.Log($"행 : {y} , 열 : {x}");
 
                     Image img = boatSize[uiIndex];
+                    img.color = Color.red;
                     
                     if (img == null)
                     {
@@ -228,8 +229,7 @@ namespace DREDGE
 
         public void UpdateBoatUI()
         {
-            // boatSize1 ~ 35개 이미지에서 36개의 그래픽 레이캐스트를 사용해서 물고기 ui가 해당 ray를 가린다면 boatSize의 이미지 색 변화
-            // 
+            
 
         }
 
