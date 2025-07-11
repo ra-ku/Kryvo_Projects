@@ -21,7 +21,8 @@ namespace DREDGE
             DontDestroyOnLoad(gameObject);
 
             _managers.Add(RandomManager.Instance);
-            _managers.Add(FishingManager.Instance);            
+            _managers.Add(FishingManager.Instance);
+            _managers.Add(BoatSizeStateManager.Instance);
         }
 
         private void Start()

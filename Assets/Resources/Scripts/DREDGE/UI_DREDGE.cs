@@ -24,42 +24,22 @@ namespace DREDGE
 
             //Freight
             FishingFreightBackGround,
-            BoatSize,
-            BoatSize1,
-            BoatSize2,
-            BoatSize3,
-            BoatSize4,
-            BoatSize5,
-            BoatSize6,
-            BoatSize7,
-            BoatSize8,
-            BoatSize9,
-            BoatSize10,
-            BoatSize11,
-            BoatSize12,
-            BoatSize13,
-            BoatSize14,
-            BoatSize15,
-            BoatSize16,
-            BoatSize17,
-            BoatSize18,
-            BoatSize19,
-            BoatSize20,
-            BoatSize21,
-            BoatSize22,
-            BoatSize23,
-            BoatSize24,
-            BoatSize25,
-            BoatSize26,
-            BoatSize27,
-            BoatSize28,
-            BoatSize29,
-            BoatSize30,
-            BoatSize31,
-            BoatSize32,
-            BoatSize33,
-            BoatSize34,
-            BoatSize35,
+            BoatSize,BoatSize1,BoatSize2,BoatSize3,BoatSize4,BoatSize5,BoatSize6,BoatSize7,BoatSize8,BoatSize9,BoatSize10,
+            BoatSize11,BoatSize12,BoatSize13, BoatSize14,BoatSize15,BoatSize16,BoatSize17,BoatSize18,BoatSize19,BoatSize20,
+            BoatSize21,BoatSize22,BoatSize23,BoatSize24,BoatSize25,BoatSize26,BoatSize27,BoatSize28,BoatSize29,BoatSize30,
+            BoatSize31,BoatSize32,BoatSize33,BoatSize34,BoatSize35,
+
+            // fish
+            Arrow_Squid,
+            Black_Grouper,
+            Blue_Mackerel,
+            Bronze_Whaler,
+            Cod,
+            Gulf_Flounder,
+            Sailfish,
+            Stingray,
+            Swordfish,
+            Grey_Eel,
         }
 
         enum GameObjects
@@ -78,7 +58,18 @@ namespace DREDGE
         private Image hitZone1;
         private Image hitZone2;
 
-        private Image[] boatSize = new Image[36];  
+        private Image[] boatSize = new Image[36];
+
+        private Image arrow_Squid;
+        private Image black_Grouper;
+        private Image blue_Mackerel;
+        private Image bronze_Whaler;
+        private Image cod;
+        private Image gulf_Flounder;
+        private Image sailFish;
+        private Image stringray;
+        private Image swordFish;
+        private Image grey_Eel;
 
         [Header("Slider")]
         private Slider fishingGage;
@@ -124,7 +115,6 @@ namespace DREDGE
         {
             FishingStick_UI();
             FishingGage_UI();
-            UpdateBoatUI();
         }
 
         public void FishingStick_UI()
@@ -132,7 +122,7 @@ namespace DREDGE
             if (fishingStick != null)
             {
                 float deltaAngle = Constant.RotationSpeed.STICK_ROTATION_SPEED * Time.deltaTime;
-                RectTransform rt = fishingStick.rectTransform;                
+                RectTransform rt = fishingStick.rectTransform;
                 Vector3 euler = rt.localEulerAngles;
 
                 float newZ = euler.z - deltaAngle;
@@ -197,6 +187,7 @@ namespace DREDGE
 
             img.rectTransform.localRotation = Quaternion.Euler(0f, 0f, minAngle);
         }
+       
 
         public void ApplyBoatSize()
         {
@@ -226,13 +217,6 @@ namespace DREDGE
                 }
             }
         }
-
-        public void UpdateBoatUI()
-        {
-            
-
-        }
-
 
         private void FindComponent()
         {
