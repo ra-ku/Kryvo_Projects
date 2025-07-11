@@ -48,7 +48,7 @@ namespace DREDGE
             public static readonly int[,] SAILFISH = new int[,] 
             {
                 { 0, 1, 1, 1, 0, 0 }, 
-                { 1, 1, 1, 1, 1, 1 } 
+                { 1, 1, 1, 1, 1, 1 }
             };
             public static readonly int[,] BRONZE_WHALER = new int[,]
             { 
