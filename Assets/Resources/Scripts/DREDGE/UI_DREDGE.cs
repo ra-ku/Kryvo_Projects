@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -78,16 +79,25 @@ namespace DREDGE
         {
             init();
 
-            //mapping
+            //mapping images
             fishingStick = Get<Image>((int)Images.FishingStick);
             fish = Get<Image>((int)Images.Fish);
             fishingBackground = Get<Image>((int)Images.FishingBackGround);
             hitZone = Get<Image>((int)Images.HitZone);
             hitZone1 = Get<Image>((int)Images.HitZone1);
             hitZone2 = Get<Image>((int)Images.HitZone2);
+            arrow_Squid = Get<Image>((int)Images.Arrow_Squid);
+            black_Grouper = Get<Image>((int)Images.Black_Grouper);
+            blue_Mackerel = Get<Image>((int)Images.Blue_Mackerel);
+            bronze_Whaler = Get<Image>((int)Images.Bronze_Whaler);
+            cod = Get<Image>((int)Images.Cod);
+            gulf_Flounder = Get<Image>((int)Images.Gulf_Flounder);
+            sailFish = Get<Image>((int)Images.Sailfish);
+            stringray = Get<Image>((int)Images.Stingray);
+            grey_Eel = Get<Image>((int)Images.Grey_Eel);
 
+            //mapping sliders
             fishingGage = Get<Slider>((int)Sliders.FishingGage);
-
 
             for (int i = 0; i < boatSize.Length; i++)
             {
@@ -186,8 +196,7 @@ namespace DREDGE
             img.fillAmount = clampedSpan / 360f;
 
             img.rectTransform.localRotation = Quaternion.Euler(0f, 0f, minAngle);
-        }
-       
+        }       
 
         public void ApplyBoatSize()
         {
@@ -217,6 +226,8 @@ namespace DREDGE
                 }
             }
         }
+
+        //
 
         private void FindComponent()
         {

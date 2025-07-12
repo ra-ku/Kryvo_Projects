@@ -23,6 +23,7 @@ namespace DREDGE
             _managers.Add(RandomManager.Instance);
             _managers.Add(FishingManager.Instance);
             _managers.Add(BoatSizeStateManager.Instance);
+            _managers.Add(MouseEventHandler.Instance);
         }
 
         private void Start()
@@ -40,6 +41,12 @@ namespace DREDGE
             if (Input.GetKeyDown(KeyCode.F) && FishingManager.Instance.IsActiveFishing())
             {
                 FishingManager.Instance.Tick();
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector2 clickPosition = Input.mousePosition;
+                MouseEventHandler.Instance.HandleMouseClick(clickPosition);
             }
         }
     }

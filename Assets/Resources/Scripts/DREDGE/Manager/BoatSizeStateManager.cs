@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace DREDGE
 {
+    public enum EBoatState
+    {
+        None = 0,        
+    }
     public class BoatSizeStateManager : IManager
     {
         #region instance
@@ -33,18 +37,18 @@ namespace DREDGE
             currentBoatGrid = (int[,]) baseGrid.Clone();
         }
 
-        public bool CanPlaceFish(int startX, int startY, int[,] fishSize)
+        public bool CanPlaceFish(int startX, int startY, Fish fish)
         {
             ////TODO
             return false;
         }
 
-        public void PlaceFish(int startX, int startY, int[,] fishSize)
+        public void PlaceFish(int startX, int startY, Fish fish)
         {
             ////TODO
         }
 
-        public void CancelFish(int startX, int startY, int[,] fishSize)
+        public void CancelFish(int startX, int startY, Fish fish)
         {
             ////TODO 
         }
